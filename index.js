@@ -109,7 +109,7 @@ const server = new ApolloServer({
   resolvers
 })
 
-// call srtongly here
+// call srtongly here !!!
 app.use(cors(
     corsOptions
 ));
