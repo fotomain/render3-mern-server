@@ -86,7 +86,7 @@ const resolvers = {
 
 
 const ALLOWED_ORIGINS=
-    'https://render2-client.netlify.app ' +
+    'https://render3-mern-client.netlify.app ' +
     'http://localhost:3001 ' +
     'http://localhost:3000 ' +
     'http://localhost:8080 '
