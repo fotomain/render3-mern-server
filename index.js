@@ -1,6 +1,11 @@
 
-import { ApolloServer } from '@apollo/server'
-import { startStandaloneServer } from '@apollo/server/standalone'
+import express from "express"
+import cors from 'cors'
+
+import pkg from 'apollo-server-express'
+const { ApolloServer, startStandaloneServer } = pkg
+// import { ApolloServer } from '@apollo/server'
+// import { startStandaloneServer } from '@apollo/server/standalone'
 
 // data
 import db from './apollo_games/_db.js'
@@ -8,6 +13,7 @@ import db from './apollo_games/_db.js'
 // types
 import { typeDefs } from './apollo_games/schema.js'
 
+const app = express();
 
 // resolvers
 const resolvers = {
@@ -78,14 +84,55 @@ const resolvers = {
   }
 }
 
+
+const ALLOWED_ORIGINS=
+    'https://render2-client.netlify.app ' +
+    'http://localhost:3001 ' +
+    'http://localhost:3000 ' +
+    'http://localhost:8080 '
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    const allowedOrigins = ALLOWED_ORIGINS.split(" ");
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Request from unauthorized origin"));
+    }
+  },
+};
+
+
 // server setup
 const server = new ApolloServer({
   typeDefs,
   resolvers
 })
 
-const { url } = await startStandaloneServer(server, {
-  listen: { port: 4000 }
+// ================
+// ================ RUN
+// ================
+
+app.get('/status', (_, res) => {
+  res.status(200).json({ message: "All is fine!" })
+});
+
+// ================
+// ================
+// ================
+
+await server.start()
+
+// await startStandaloneServer(server, {
+//   listen: { port: 4000 }
+// })
+
+server.applyMiddleware({ app, cors: corsOptions });
+
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log(`=========== Server listening on ${PORT}`);
 })
 
-console.log(`Server ready at: ${url}`)
+

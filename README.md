@@ -3,7 +3,6 @@ HOST: https://dashboard.render.com/web/srv-ctc3mpd2ng1s73bto460/deploys/dep-ctc5
 
 node index.js
 
-
 ==============
 git init
 git remote add origin https://github.com/fotomain/render3-mern-server.git
