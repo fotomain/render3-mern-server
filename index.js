@@ -109,6 +109,10 @@ const server = new ApolloServer({
   resolvers
 })
 
+app.use(cors(
+    corsOptions
+));
+
 // ================
 // ================ RUN
 // ================
@@ -132,9 +136,6 @@ await server.start()
 //   listen: { port: 4000 }
 // })
 
-app.use(cors(
-    corsOptions
-));
 
 
 server.applyMiddleware({ app });
