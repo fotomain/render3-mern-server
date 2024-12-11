@@ -128,7 +128,7 @@ await server.start()
 // })
 
 app.use(cors(
-    customCorsOptions
+    corsOptions
 ));
 
 
