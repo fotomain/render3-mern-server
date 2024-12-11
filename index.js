@@ -113,6 +113,9 @@ const server = new ApolloServer({
 // ================ RUN
 // ================
 
+app.get('/testfetch', async (req, res) => {
+  return res.status(200).json({response:'testfetch OK'});
+});
 app.get('/status', (_, res) => {
   res.status(200).json({ message: "All is fine!" })
 });
