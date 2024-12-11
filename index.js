@@ -127,7 +127,13 @@ await server.start()
 //   listen: { port: 4000 }
 // })
 
-server.applyMiddleware({ app, cors: corsOptions });
+app.use(cors(
+    customCorsOptions
+));
+
+
+server.applyMiddleware({ app });
+// server.applyMiddleware({ app, cors: corsOptions });
 
 const PORT = process.env.PORT || 4000;
 
