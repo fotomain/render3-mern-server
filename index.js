@@ -89,6 +89,7 @@ const ALLOWED_ORIGINS=
     'https://render3-mern-client.netlify.app ' +
     'http://localhost:3001 ' +
     'http://localhost:3000 ' +
+    'http://localhost:4000 ' +
     'http://localhost:8080 '
 
 const corsOptions = {
@@ -110,10 +111,12 @@ const server = new ApolloServer({
 })
 
 // call srtongly here !!!
-app.use(cors(
-    corsOptions
-));
-
+const productionMode= process.env.PRODUCTION_MODE || false
+if(productionMode) {
+  app.use(cors(
+      corsOptions
+  ));
+}
 // ================
 // ================ RUN productionWork
 // ================
@@ -137,7 +140,6 @@ await server.start()
 //   listen: { port: 4000 }
 // })
 
-
 server.applyMiddleware({ app, path: '/graphql' });
 
 // server.applyMiddleware({ app });
@@ -146,7 +148,7 @@ server.applyMiddleware({ app, path: '/graphql' });
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-  console.log(`=========== Server listening on ${PORT}`);
+  console.log(`=========== Server listening on http://localhost:${PORT}`);
 })
 
 
