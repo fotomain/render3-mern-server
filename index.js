@@ -112,6 +112,7 @@ const server = new ApolloServer({
 
 // call srtongly here !!!
 const productionMode= process.env.PRODUCTION_MODE || false
+console.log("=== productionMode",productionMode)
 if(productionMode) {
   app.use(cors(
       corsOptions
