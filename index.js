@@ -56,7 +56,10 @@ const resolvers = {
     }
   },
   Mutation: {
-    addGame(_, args) {
+    createGame(_, args) {
+
+      console.log("=== createGame args",args)
+
       let game = {
         ...args.game,
         id: Math.floor(Math.random() * 10000).toString()
