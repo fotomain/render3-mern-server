@@ -68,7 +68,7 @@ const resolvers = {
 
       const keyData = args.game.id
       if((undefined===keyData) || (""===keyData))
-        game.id = uuid4()
+        game.id = "server-"+uuid4()
             // Math.floor(Math.random() * 10000).toString()
 
       db.games.push(game)
