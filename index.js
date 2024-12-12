@@ -64,7 +64,7 @@ const resolvers = {
         ...args.game,
       }
 
-      if(!args.game.id)
+      if(!args.game.id || (""===args.game.id))
         game.id = Math.floor(Math.random() * 10000).toString()
 
       db.games.push(game)
