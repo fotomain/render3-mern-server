@@ -19,7 +19,7 @@ const app = express();
 const resolvers = {
   Query: {
     games() {
-      return db.games
+      return db.games //createGameAdapter
     },
     game(_, args) {
       return db.games.find((game) => game.id === args.id)
