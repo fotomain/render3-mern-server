@@ -62,9 +62,10 @@ const resolvers = {
 
       let game = {
         ...args.game,
-        id: Math.floor(Math.random() * 10000).toString()
-        // id: (args.game.id)?args.game.id:Math.floor(Math.random() * 10000).toString()
       }
+
+      if(!game.id) game.id = Math.floor(Math.random() * 10000).toString()
+
       db.games.push(game)
 
       return game
