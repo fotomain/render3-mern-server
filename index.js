@@ -2,6 +2,8 @@
 import express from "express"
 import cors from 'cors'
 
+import {v4 as uuid4} from "uuid";
+
 import pkg from 'apollo-server-express'
 const { ApolloServer, startStandaloneServer } = pkg
 // import { ApolloServer } from '@apollo/server'
@@ -66,7 +68,8 @@ const resolvers = {
 
       const keyData = args.game.id
       if((undefined===keyData) || (""===keyData))
-        game.id = Math.floor(Math.random() * 10000).toString()
+        game.id = uuid()
+            // Math.floor(Math.random() * 10000).toString()
 
       db.games.push(game)
 
