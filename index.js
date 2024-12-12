@@ -138,8 +138,9 @@ await server.start()
 // })
 
 
+server.applyMiddleware({ app, path: '/graphql' });
 
-server.applyMiddleware({ app });
+// server.applyMiddleware({ app });
 // server.applyMiddleware({ app, cors: corsOptions });
 
 const PORT = process.env.PORT || 4000;
