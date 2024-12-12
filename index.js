@@ -60,7 +60,7 @@ const resolvers = {
   Mutation: {
     createGame(_, args) {
 
-      console.log("=== createGame args ",args)
+      console.log("=== createGame args",args)
 
       let game = {
         ...args.game,
