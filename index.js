@@ -65,7 +65,7 @@ const app = express();
 // resolvers
 const resolvers = {
   Query: {
-    async games() {
+    games() {
 
       // if(mongodbMode) {
       //
