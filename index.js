@@ -82,9 +82,15 @@ const resolvers = {
             }
         )
 
+        while (await cursor.hasNext()) {
+          // console.log(await cursor.next());
+          const el = cursor.next()
+          console.log("==== return game ",el.id, el.title)
+
+        }
         // console.log("==== return games length ",ret.length)
-        console.log("==== return games ret ",ret)
-        console.log("==== return games 0 ",ret[0])
+        // console.log("==== return games ret ",ret)
+        // console.log("==== return games 0 ",ret[0])
         // return await workEntity.find()
 
       }
