@@ -189,7 +189,7 @@ const resolvers = {
         console.log("=== workResponse update game args",args)
 
         const workResponse = await workEntity.updateOne({_id:args.id},
-            { $set: { "title" : "NNNNN"+Date.now() } }
+            { $set: { "title" : "NNNNN"+Date.now().toString() } }
         )
 
         console.log("=== workResponse update game",workResponse)
