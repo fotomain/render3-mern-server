@@ -123,7 +123,7 @@ const resolvers = {
     reviews(parent) {
 
       if(mongodbMode) {
-        return {id:"NOid",title:'ttttttt',platform:["NOplatform"]}
+        return db.reviews[0]
       }
       else {
         return db.reviews.filter((r) => r.game_id === parent.id)
