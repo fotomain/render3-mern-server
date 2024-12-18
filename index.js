@@ -204,6 +204,7 @@ const resolvers = {
               }
           )
           const allValues = await cursor.toArray();
+          console.log("=== workResponse update allValues",allValues)
 
           return allValues
 
