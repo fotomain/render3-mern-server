@@ -206,7 +206,7 @@ const resolvers = {
               }
           )
           const allValues = await cursor.toArray();
-          console.log("=== workResponse update allValues",allValues)
+          console.log("=== workResponse update allValues 1",allValues)
 
           return allValues
 
