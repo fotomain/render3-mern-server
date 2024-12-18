@@ -228,12 +228,17 @@ const ALLOWED_ORIGINS=
 
 const corsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = ALLOWED_ORIGINS.split(" ");
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("===== Express Cors -> Request from unauthorized origin"));
-    }
+
+    // allow all
+    callback(null, true);
+
+      // ========== WORKS !!!!!!!!!!!
+      // const allowedOrigins = ALLOWED_ORIGINS.split(" ");
+      // if (allowedOrigins.indexOf(origin) !== -1) {
+      //   callback(null, true);
+      // } else {
+      //   callback(new Error("===== Express Cors -> Request from unauthorized origin"));
+      // }
   },
 };
 
