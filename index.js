@@ -67,12 +67,12 @@ const resolvers = {
   Query: {
     async games() {
 
-      if(mongodbMode) {
-
-        const workEntity = dbGames.collection('games');
-        return workEntity.find()
-
-      }
+      // if(mongodbMode) {
+      //
+      //   const workEntity = dbGames.collection('games');
+      //   return workEntity.find()
+      //
+      // }
 
       return db.games //createGameAdapter
     },
@@ -123,6 +123,7 @@ const resolvers = {
       if((undefined===keyData) || (""===keyData))
         game.id = uuid4()
             // game.id = "server-"+uuid4()
+
             // Math.floor(Math.random() * 10000).toString()
 
       db.games.push(game)
