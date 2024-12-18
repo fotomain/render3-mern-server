@@ -94,7 +94,7 @@ const resolvers = {
         var doc=game
         doc._id=game.id
         const gamesCollection = dbGames.collection('games');
-        gamesCollection.insert(doc)
+        gamesCollection.insertOne(doc)
 
       }
 
