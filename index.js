@@ -67,12 +67,12 @@ const resolvers = {
   Query: {
     games: async () => {
 
-      if(mongodbMode) {
-
-        const workEntity = dbGames.collection('games');
-        return await workEntity.find()
-
-      }
+      // if(mongodbMode) {
+      //
+      //   const workEntity = dbGames.collection('games');
+      //   return await workEntity.find()
+      //
+      // }
 
       return db.games //createGameAdapter
     },
