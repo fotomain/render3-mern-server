@@ -88,6 +88,9 @@ const resolvers = {
         }
 
         const allValues = await cursor.toArray();
+        console.log("==== cursor -> allValues ")
+        console.log("==== cursor -> allValues ")
+        console.log("==== cursor -> allValues ")
         console.log("==== cursor -> allValues ",allValues)
 
 
