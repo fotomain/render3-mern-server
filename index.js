@@ -6,7 +6,7 @@ import cors from 'cors'
 
 import { MongoClient } from "mongodb"
 var dbGames = null
-const mongodbMode = true
+const mongodbMode = false
 
 const localUri = "";
 
@@ -123,6 +123,7 @@ const resolvers = {
     reviews(parent) {
 
       if(mongodbMode) {
+        // TODO
         return db.reviews[0]
       }
       else {
