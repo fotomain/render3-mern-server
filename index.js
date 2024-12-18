@@ -82,18 +82,19 @@ const resolvers = {
             }
         )
 
-          while (await cursor.hasNext()) {
-            // console.log(await cursor.next());
+        const allValues = await cursor.toArray();
+        console.log("==================== ")
+        console.log("==================== cursor -> allValues ")
+        console.log("==================== ")
+        console.log("==== cursor -> allValues ",allValues)
+
+        while (await cursor.hasNext()) {
+            // console.log("==== cursor -> game ",await cursor.next())
             // console.log("==== cursor -> game ",cursor.next())
             const el = await cursor.next()
             console.log("==== cursor -> el ",el)
           }
 
-          const allValues = await cursor.toArray();
-          console.log("==================== ")
-          console.log("==================== cursor -> allValues ")
-          console.log("==================== ")
-          console.log("==== cursor -> allValues ",allValues)
 
         // console.log("==== return games length ",ret.length)
         // console.log("==== return games ret ",ret)
