@@ -17,6 +17,30 @@ console.log("=== mongodbConnectUrl ",mongodbConnectUrl)
 
 const client = new MongoClient(mongodbConnectUrl);
 
+
+// ================
+// ================ MONGO CLIENT
+// ================
+
+async function runMongoDB() {
+  try {
+    await client.connect();
+    const database = client.db('sample_mflix');
+    dbGames = client.db('games_database');
+    const movies = database.collection('movies');
+    // Query for a movie that has the title 'Back to the Future'
+    const query = { title: 'Back to the Future' };
+    const movie = await movies.findOne(query);
+    console.log("=========== movie test",movie);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
+runMongoDB().catch(console.dir);
+
+
 import {v4 as uuid4} from "uuid";
 
 import pkg from 'apollo-server-express'
@@ -170,27 +194,6 @@ app.get('/status', (_, res) => {
   //test show in browser
   res.status(200).json({ message: "All is fine!" })
 });
-
-// ================
-// ================ MONGO CLIENT
-// ================
-
-async function run() {
-  try {
-    await client.connect();
-    const database = client.db('sample_mflix');
-    dbGames = client.db('games_database');
-    const movies = database.collection('movies');
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { title: 'Back to the Future' };
-    const movie = await movies.findOne(query);
-    console.log("=========== movie test",movie);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
 
 // ================
 // ================ SERVER
