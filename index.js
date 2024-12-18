@@ -185,12 +185,10 @@ const resolvers = {
 
       if(mongodbMode) {
         const workEntity = dbGames.collection('games');
-        const {id, edits} = args
-        const {...newData} = edits
 
         console.log("=== workResponse update game newData",newData)
 
-        const workResponse = await workEntity.updateOne({_id:id}, newData )
+        const workResponse = await workEntity.updateOne({_id:args.id}, args.edits )
 
         console.log("=== workResponse update game",workResponse)
         return await workEntity.find(
