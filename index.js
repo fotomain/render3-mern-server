@@ -70,7 +70,7 @@ const resolvers = {
       if(mongodbMode) {
 
         const workEntity = dbGames.collection('games');
-        const ret = workEntity.find()
+        const ret = await workEntity.find()
         console.log("==== return games",ret)
         // return await workEntity.find()
 
