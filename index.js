@@ -5,6 +5,8 @@ import express from "express"
 import cors from 'cors'
 
 import { MongoClient } from "mongodb"
+var dbGames = null
+const mongodbMode = true
 
 const localUri =
     "mongodb+srv://work_user2:password777999password777999@cluster0.algml.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -87,7 +89,14 @@ const resolvers = {
 
       db.games.push(game)
 
+      if(mongodbMode) {
 
+        var doc=game
+        doc._id=game.id
+        const gamesCollection = dbGames.collection('games');
+        gamesCollection.insert(doc)
+
+      }
 
       return game
     },
@@ -166,6 +175,7 @@ async function run() {
   try {
     await client.connect();
     const database = client.db('sample_mflix');
+    dbGames = client.db('games_database');
     const movies = database.collection('movies');
     // Query for a movie that has the title 'Back to the Future'
     const query = { title: 'Back to the Future' };
