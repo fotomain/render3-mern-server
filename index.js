@@ -65,7 +65,15 @@ const app = express();
 // resolvers
 const resolvers = {
   Query: {
-    games() {
+    async games() {
+
+      if(mongodbMode) {
+
+        const workEntity = dbGames.collection('games');
+        return workEntity.find()
+
+      }
+
       return db.games //createGameAdapter
     },
     game(_, args) {
