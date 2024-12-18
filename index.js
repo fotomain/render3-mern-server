@@ -203,14 +203,14 @@ const resolvers = {
 
         console.log("=== workResponse update game",workResponse)
 
-          const cursor = await workEntity.findOne(
+          const allValues = await workEntity.findOne(
               { _id:args.id },
               {projection: {_id:0, title: 1, platform: 1, id: 1}}
           )
-          const allValues = await cursor.toArray();
+
           console.log("=== workResponse update allValues 1",allValues)
 
-          return allValues[0]
+          return allValues
 
       }
       else{
