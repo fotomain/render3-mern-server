@@ -186,7 +186,11 @@ const resolvers = {
       if(mongodbMode) {
         const workEntity = dbGames.collection('games');
         const {id, ...newData} = args
+
+        console.log("=== workResponse update game newData",newData)
+
         const workResponse = await workEntity.updateOne({_id:id}, newData )
+
         console.log("=== workResponse update game",workResponse)
         return await workEntity.find(
             {},
@@ -232,7 +236,7 @@ const corsOptions = {
     // allow all
     callback(null, true);
 
-      // ========== WORKS !!!!!!!!!!!
+      // ========== WORKS - DO NOT DELETE !!!!!!!!!!!
       // const allowedOrigins = ALLOWED_ORIGINS.split(" ");
       // if (allowedOrigins.indexOf(origin) !== -1) {
       //   callback(null, true);
