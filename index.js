@@ -83,10 +83,10 @@ const resolvers = {
         )
 
         const allValues = await cursor.toArray();
-        console.log("====================")
-        console.log("==================== cursor -> allValues ")
-        console.log("====================")
-        console.log("==== cursor -> allValues ",allValues)
+        // console.log("====================")
+        // console.log("==================== cursor -> allValues ")
+        // console.log("====================")
+        // console.log("==== cursor -> allValues ",allValues)
 
         return allValues
 
