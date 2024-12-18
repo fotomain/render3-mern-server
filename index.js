@@ -8,8 +8,7 @@ import { MongoClient } from "mongodb"
 var dbGames = null
 const mongodbMode = true
 
-const localUri =
-    "mongodb+srv://work_user2:password777999password777999@cluster0.algml.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const localUri = "";
 
 const mongodbConnectUrl = process.env.MONGODB_CONNECT_URI || localUri
 
