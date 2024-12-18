@@ -25,8 +25,14 @@ const client = new MongoClient(mongodbConnectUrl);
 async function runMongoDB() {
   try {
     await client.connect();
+
+      dbGames = client.db('games_database');
+      // const gamesCollection = dbGames.collection('games');
+      // const createResponse = await gamesCollection.insertOne({
+      //   title:"Test - "+Date.now()
+      // })
+
     const database = client.db('sample_mflix');
-    dbGames = client.db('games_database');
     const movies = database.collection('movies');
     // Query for a movie that has the title 'Back to the Future'
     const query = { title: 'Back to the Future' };
@@ -97,7 +103,7 @@ const resolvers = {
     }
   },
   Mutation: {
-    createGame(_, args) {
+    async createGame(_, args) {
 
       console.log("=== createGame args",args)
 
@@ -113,23 +119,23 @@ const resolvers = {
 
       db.games.push(game)
 
-      if(mongodbMode) {
+        if(mongodbMode) {
 
-        const _do = async () =>{
-          var doc=game
-          doc._id=game.id
-          const gamesCollection = dbGames.collection('games');
-          const createResponse = await gamesCollection.insertOne(doc)
-          console.log("=== createResponse ",createResponse)
+            var doc=game
+            doc._id=game.id
+            const gamesCollection = dbGames.collection('games');
+            const createResponse = await gamesCollection.insertOne(doc)
+            console.log("=== createResponse ",createResponse)
+            return game
+
         }
-        _do()
-
-      }
 
       return game
     },
     deleteGame(_, args) {
       db.games = db.games.filter((g) => g.id !== args.id)
+
+
 
       return db.games
     },
