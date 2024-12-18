@@ -170,7 +170,7 @@ async function run() {
     // Query for a movie that has the title 'Back to the Future'
     const query = { title: 'Back to the Future' };
     const movie = await movies.findOne(query);
-    console.log("============ movie test",movie);
+    console.log("=========== movie test",movie);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
