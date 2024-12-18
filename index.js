@@ -188,7 +188,9 @@ const resolvers = {
 
         console.log("=== workResponse update game newData",newData)
 
-        const workResponse = await workEntity.updateOne({_id:args.id}, args.edits )
+        const workResponse = await workEntity.updateOne({_id:args.id},
+            { $set: { "title" : "NNNNN" } }
+        )
 
         console.log("=== workResponse update game",workResponse)
         return await workEntity.find(
