@@ -34,7 +34,7 @@ async function runMongoDB() {
     console.log("=========== movie test",movie);
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    // await client.close();
   }
 }
 
