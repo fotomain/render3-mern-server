@@ -91,11 +91,14 @@ const resolvers = {
 
       if(mongodbMode) {
 
-        var doc=game
-        doc._id=game.id
-        const gamesCollection = dbGames.collection('games');
-        const createResponse = gamesCollection.insertOne(doc)
-        console.log("=== createResponse ",createResponse)
+        const _do = async () =>{
+          var doc=game
+          doc._id=game.id
+          const gamesCollection = dbGames.collection('games');
+          const createResponse = await gamesCollection.insertOne(doc)
+          console.log("=== createResponse ",createResponse)
+        }
+        _do()
 
       }
 
