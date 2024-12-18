@@ -72,7 +72,7 @@ const resolvers = {
         const workEntity = dbGames.collection('games');
         // const ret = await workEntity.find().limit( 100 ).skip( 0 )
         //=== DOC https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-crud-read-cursor
-        const ret = await workEntity.find(
+        const cursor = await workEntity.find(
             {},
             { title: 1, platform: 1, id:1 },
             {
@@ -86,7 +86,6 @@ const resolvers = {
           // console.log(await cursor.next());
           const el = cursor.next()
           console.log("==== cursor game ",el.id, el.title)
-
         }
         // console.log("==== return games length ",ret.length)
         // console.log("==== return games ret ",ret)
