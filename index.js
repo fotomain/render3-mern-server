@@ -85,7 +85,7 @@ const resolvers = {
         while (await cursor.hasNext()) {
           // console.log(await cursor.next());
           const el = cursor.next()
-          console.log("==== cursor game ",el.id, el.title)
+          console.log("==== cursor -> game ",el.id, el.title)
         }
         // console.log("==== return games length ",ret.length)
         // console.log("==== return games ret ",ret)
