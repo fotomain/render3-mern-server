@@ -82,6 +82,7 @@ const resolvers = {
             }
         )
 
+        //=== DOC https://www.mongodb.com/ko-kr/docs/manual/reference/method/cursor.toArray/
         const allValues = await cursor.toArray();
         // console.log("====================")
         // console.log("==================== cursor -> allValues ")
@@ -180,17 +181,38 @@ const resolvers = {
 
       return db.games
     },
-    updateGame(_, args) {
-      db.games = db.games.map((g) => {
+    await updateGame(_, args) {
 
-        if (g.id === args.id) {
-          return {...g, ...args.edits}
-        }
+      if(mongodbMode) {
+        const workEntity = dbGames.collection('games');
+        const {id, ...newData} = args
+        const workResponse = await workEntity.updateOne({_id:id}, newData )
+        console.log("=== workResponse update game",workResponse)
+        return await workEntity.find(
+            {},
+            { title: 1, platform: 1, id:1 },
+            {
+              limit: 100,
+              skip: 0,
+              showRecordId: false
+            }
+        ).toArray()
 
-        return g
-      })
+      }
+      else{
+        db.games = db.games.map((g) => {
 
-      return db.games.find((g) => g.id === args.id)
+          if (g.id === args.id) {
+            return {...g, ...args.edits}
+          }
+
+          return g
+        })
+
+        return db.games.find((g) => g.id === args.id)
+      }
+
+
     }
   }
 }
