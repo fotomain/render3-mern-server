@@ -6,7 +6,7 @@ import cors from 'cors'
 
 import { MongoClient } from "mongodb"
 var dbGames = null
-const mongodbMode = false
+const mongodbMode = true
 
 const localUri = "";
 
