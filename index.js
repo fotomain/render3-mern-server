@@ -74,7 +74,7 @@ const resolvers = {
         //=== DOC https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-crud-read-cursor
         const cursor = await workEntity.find(
             {},
-            { title: 1, platform: 1, id:1 },
+            { title: 1, platform: 1, id:1 , _id: false },
             {
               limit: 100,
               skip: 0,
@@ -196,7 +196,7 @@ const resolvers = {
 
           const cursor = await workEntity.find(
               {},
-              { title: 1, platform: 1, id:1 },
+              { title: 1, platform: 1, id:1 , _id: false },
               {
                 limit: 100,
                 skip: 0,
