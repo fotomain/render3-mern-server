@@ -16,6 +16,7 @@ console.log("=== mongodbConnectUrl ",mongodbConnectUrl)
 
 const client = new MongoClient(mongodbConnectUrl);
 
+console.log("=== client MongoClient ",client)
 
 // ================
 // ================ MONGO CLIENT !!! before resolvers
@@ -219,6 +220,7 @@ const resolvers = {
 
 const ALLOWED_ORIGINS=
     'https://render3-mern-client.netlify.app ' +
+    'https://render3-mern-server.onrender.com ' +
     'http://localhost:3001 ' +
     'http://localhost:3000 ' +
     'http://localhost:4000 ' +
