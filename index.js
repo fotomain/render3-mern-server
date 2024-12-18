@@ -12,11 +12,11 @@ const localUri = "";
 
 const mongodbConnectUrl = process.env.MONGODB_CONNECT_URI || localUri
 
-console.log("=== mongodbConnectUrl ",mongodbConnectUrl)
+console.log("=== mongodbConnectUrl  ",mongodbConnectUrl)
 
 const client = new MongoClient(mongodbConnectUrl);
 
-console.log("=== client MongoClient ",client)
+console.log("=== client MongoClient  ",client)
 
 // ================
 // ================ MONGO CLIENT !!! before resolvers
