@@ -186,7 +186,7 @@ const resolvers = {
       if(mongodbMode) {
         const workEntity = dbGames.collection('games');
 
-        console.log("=== workResponse update game newData",newData)
+        console.log("=== workResponse update game args",args)
 
         const workResponse = await workEntity.updateOne({_id:args.id},
             { $set: { "title" : "NNNNN" } }
