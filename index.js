@@ -70,7 +70,17 @@ const resolvers = {
       if(mongodbMode) {
 
         const workEntity = dbGames.collection('games');
-        const ret = await workEntity.find()
+        // const ret = await workEntity.find().limit( 100 ).skip( 0 )
+        const ret = await workEntity.find(
+            {},
+            { title: 1, platform: 1, id:1 },
+            {
+              limit: 100,
+              skip: 0,
+              showRecordId: false
+            }
+        )
+
         // console.log("==== return games length ",ret.length)
         console.log("==== return games 0 ",ret[0])
         // return await workEntity.find()
