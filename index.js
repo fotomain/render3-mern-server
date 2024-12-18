@@ -121,8 +121,14 @@ const resolvers = {
   },
   Game: {
     reviews(parent) {
-      return {}
-      // return db.reviews.filter((r) => r.game_id === parent.id)
+
+      if(mongodbMode) {
+        return {id:"NOid",title:'ttttttt',platform:["NOplatform"]}
+      }
+      else {
+        return db.reviews.filter((r) => r.game_id === parent.id)
+      }
+
     }
   },
   Review: {
