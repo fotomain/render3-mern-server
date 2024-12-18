@@ -123,19 +123,26 @@ const resolvers = {
 
             var doc=game
             doc._id=game.id
-            const gamesCollection = dbGames.collection('games');
-            const createResponse = await gamesCollection.insertOne(doc)
-            console.log("=== createResponse ",createResponse)
+            const workEntity = dbGames.collection('games');
+            const workResponse = await workEntity.insertOne(doc)
+            console.log("=== workResponse create game",workResponse)
             return game
 
         }
 
       return game
     },
-    deleteGame(_, args) {
+    async deleteGame(_, args) {
       db.games = db.games.filter((g) => g.id !== args.id)
 
+      if(mongodbMode) {
 
+        const workEntity = dbGames.collection('games');
+        const workResponse = await workEntity.deleteOne({_id:args.id})
+        console.log("=== workResponse create game",workResponse)
+        return db.games
+
+      }
 
       return db.games
     },
