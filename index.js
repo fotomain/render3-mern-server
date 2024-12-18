@@ -70,7 +70,7 @@ const resolvers = {
       // if(mongodbMode) {
       //
       //   const workEntity = dbGames.collection('games');
-      //   return workEntity.find()
+      //   return await workEntity.find()
       //
       // }
 
