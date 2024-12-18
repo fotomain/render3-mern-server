@@ -185,7 +185,8 @@ const resolvers = {
 
       if(mongodbMode) {
         const workEntity = dbGames.collection('games');
-        const {id, ...newData} = args
+        const {id, edits} = args
+        const {...newData} = edits
 
         console.log("=== workResponse update game newData",newData)
 
