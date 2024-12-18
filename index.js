@@ -88,18 +88,14 @@ const resolvers = {
         console.log("==================== ")
         console.log("==== cursor -> allValues ",allValues)
 
-        while (await cursor.hasNext()) {
-            // console.log("==== cursor -> game ",await cursor.next())
-            // console.log("==== cursor -> game ",cursor.next())
-            const el = await cursor.next()
-            console.log("==== cursor -> el ",el)
-          }
+        return allValues
 
-
-        // console.log("==== return games length ",ret.length)
-        // console.log("==== return games ret ",ret)
-        // console.log("==== return games 0 ",ret[0])
-        // return await workEntity.find()
+            //  while (await cursor.hasNext()) {
+            //     // console.log("==== cursor -> game ",await cursor.next())
+            //     // console.log("==== cursor -> game ",cursor.next())
+            //     const el = await cursor.next()
+            //     console.log("==== cursor -> el ",el)
+            //   }
 
       }
 
