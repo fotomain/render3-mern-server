@@ -181,7 +181,7 @@ const resolvers = {
 
       return db.games
     },
-    await updateGame(_, args) {
+    updateGame: async (_, args) => {
 
       if(mongodbMode) {
         const workEntity = dbGames.collection('games');
