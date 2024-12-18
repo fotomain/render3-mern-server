@@ -193,15 +193,19 @@ const resolvers = {
         )
 
         console.log("=== workResponse update game",workResponse)
-        return await workEntity.find(
-            {},
-            { title: 1, platform: 1, id:1 },
-            {
-              limit: 100,
-              skip: 0,
-              showRecordId: false
-            }
-        ).toArray()
+
+          const cursor = await workEntity.find(
+              {},
+              { title: 1, platform: 1, id:1 },
+              {
+                limit: 100,
+                skip: 0,
+                showRecordId: false
+              }
+          )
+          const allValues = await cursor.toArray();
+
+          return allValues
 
       }
       else{
