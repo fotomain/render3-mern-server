@@ -71,7 +71,8 @@ const resolvers = {
 
         const workEntity = dbGames.collection('games');
         const ret = await workEntity.find()
-        console.log("==== return games",ret.length())
+        // console.log("==== return games length ",ret.length)
+        console.log("==== return games 0 ",ret[0])
         // return await workEntity.find()
 
       }
