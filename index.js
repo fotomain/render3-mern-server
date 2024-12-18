@@ -94,7 +94,8 @@ const resolvers = {
         var doc=game
         doc._id=game.id
         const gamesCollection = dbGames.collection('games');
-        gamesCollection.insertOne(doc)
+        const createResponse = gamesCollection.insertOne(doc)
+        console.log("=== createResponse",createResponse)
 
       }
 
