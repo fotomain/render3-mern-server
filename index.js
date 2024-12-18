@@ -88,9 +88,9 @@ const resolvers = {
           }
 
           const allValues = await cursor.toArray();
-          console.log("==== cursor -> allValues ")
-          console.log("==== cursor -> allValues ")
-          console.log("==== cursor -> allValues ")
+          console.log("==================== ")
+          console.log("==================== cursor -> allValues ")
+          console.log("==================== ")
           console.log("==== cursor -> allValues ",allValues)
 
         // console.log("==== return games length ",ret.length)
