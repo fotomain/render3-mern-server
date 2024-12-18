@@ -19,7 +19,7 @@ const client = new MongoClient(mongodbConnectUrl);
 
 
 // ================
-// ================ MONGO CLIENT
+// ================ MONGO CLIENT !!! before resolvers
 // ================
 
 async function runMongoDB() {
@@ -38,7 +38,7 @@ async function runMongoDB() {
   }
 }
 
-runMongoDB().catch(console.dir);
+await runMongoDB().catch(console.dir);
 
 
 import {v4 as uuid4} from "uuid";
