@@ -199,7 +199,6 @@ const resolvers = {
 
         const workResponse = await workEntity.updateOne({_id:args.id},
             { $set: args.edits }
-            // { $set: { "title" : args.edits.title } }
             // { $set: { "title" : "NNNNN"+Date.now().toString() } }
         )
 
