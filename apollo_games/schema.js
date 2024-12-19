@@ -40,7 +40,7 @@ export const typeDefs = `#graphql
     platform: [String!]!
   }
   input UpdateGameInput {
-    id: String!,
+    id: String!, 
     title: String,
     platform: [String!]
   }
