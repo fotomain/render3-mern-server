@@ -177,7 +177,6 @@ const resolvers = {
       return game
     },
     async deleteGame(_, args) {
-      db.games = db.games.filter((g) => g.id !== args.id)
 
       if(mongodbMode) {
 
@@ -194,8 +193,11 @@ const resolvers = {
             return retValueDeleted
 
       }
+      else{
+        db.games = db.games.filter((g) => g.id !== args.id)
+        return db.games
+      }
 
-      return db.games
     },
     updateGame: async (_, args) => {
 
