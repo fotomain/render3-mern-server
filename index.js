@@ -181,10 +181,17 @@ const resolvers = {
 
       if(mongodbMode) {
 
-        const workEntity = dbGames.collection('games');
-        const workResponse = await workEntity.deleteOne({_id:args.id})
-        console.log("=== workResponse create game",workResponse)
-        return db.games
+        const retValueDeleted = await workEntity.findOne(
+            { _id:args.id },
+            {projection: {_id:0, title: 1, platform: 1, id: 1}}
+        )
+        console.log("=== workResponse update retValueDeleted 1",retValue)
+
+          const workEntity = dbGames.collection('games');
+          const workResponse = await workEntity.deleteOne({_id:args.id})
+          console.log("=== workResponse create game",workResponse)
+
+            return retValueDeleted
 
       }
 
