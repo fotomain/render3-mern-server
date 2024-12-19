@@ -6,7 +6,7 @@ import cors from 'cors'
 
 import { MongoClient } from "mongodb"
 var dbGames = null
-const mongodbMode = true
+export const mongodbMode = true
 
 const localUri = "";
 
@@ -70,7 +70,6 @@ const resolvers = {
       if(mongodbMode) {
 
         const workEntity = dbGames.collection('games');
-        // const ret = await workEntity.find().limit( 100 ).skip( 0 )
         //=== DOC https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-crud-read-cursor
         const cursor = await workEntity.find(
             {},
@@ -92,6 +91,7 @@ const resolvers = {
 
         return allValues
 
+            //=== WORKS
             //  while (await cursor.hasNext()) {
             //     // console.log("==== cursor -> game ",await cursor.next())
             //     // console.log("==== cursor -> game ",cursor.next())
